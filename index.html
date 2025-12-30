@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>大渡口區鋼花小學 - 直飲機 5 年維護時間規劃表</title>
+  <style>
+    :root {
+      --bg0:#0b1020;
+      --bg1:#0f1b3a;
+      --card:rgba(255,255,255,.06);
+      --card2:rgba(255,255,255,.08);
+      --stroke:rgba(255,255,255,.10);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.70);
+      --muted2:rgba(255,255,255,.55);
+      --shadow: 0 18px 50px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg0:#f6f7fb;
+        --bg1:#dfe8ff;
+        --card:rgba(255,255,255,.82);
+        --card2:rgba(255,255,255,.92);
+        --stroke:rgba(15,30,60,.10);
+        --text:rgba(10,20,40,.92);
+        --muted:rgba(10,20,40,.70);
+        --muted2:rgba(10,20,40,.55);
+        --shadow: 0 16px 40px rgba(15,30,60,.12);
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1200px 700px at 10% 5%, rgba(120,180,255,.35), transparent 50%),
+        radial-gradient(900px 600px at 90% 15%, rgba(255,140,200,.25), transparent 55%),
+        linear-gradient(180deg, var(--bg1), var(--bg0) 45%, var(--bg0));
+      min-height: 100vh;
+      padding: 34px 18px 48px;
+    }
+    .wrap { max-width: 980px; margin: 0 auto; }
+    .hero {
+      background: linear-gradient(180deg, var(--card2), var(--card));
+      border: 1px solid var(--stroke);
+      border-radius: calc(var(--radius) + 10px);
+      box-shadow: var(--shadow);
+      padding: 22px 22px 18px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(20px, 3.4vw, 30px);
+      letter-spacing: .5px;
+      display:flex;
+      align-items:center;
+      gap: 10px;
+    }
+    .dot {
+      width: 12px; height: 12px; border-radius: 999px;
+      background: linear-gradient(135deg, rgba(120,180,255,.95), rgba(255,140,200,.85));
+      box-shadow: 0 0 0 6px rgba(120,180,255,.14);
+    }
+    .sub {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 14px;
+    }
+    .chips {
+      display:flex; flex-wrap: wrap; gap: 10px;
+      margin-top: 14px;
+    }
+    .chip {
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.06);
+      color: var(--muted);
+      font-size: 13px;
+      display:flex; align-items:center; gap: 8px;
+    }
+    .chip b { color: var(--text); font-weight: 650; }
+    .controls {
+      margin-top: 16px;
+      display:flex; flex-wrap: wrap; gap: 12px;
+      align-items: center;
+    }
+    .search {
+      flex: 1 1 240px;
+      display:flex; align-items:center;
+      gap:10px;
+      padding: 11px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.06);
+    }
+    .search input {
+      width: 100%;
+      border: 0;
+      outline: none;
+      background: transparent;
+      color: var(--text);
+      font-size: 14px;
+    }
+    .toggle {
+      display:flex; align-items:center; gap: 8px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.06);
+      color: var(--muted);
+      font-size: 13px;
+      user-select: none;
+    }
+    .toggle input { width: 16px; height: 16px; }
+    .legend {
+      margin-top: 10px;
+      display:flex; flex-wrap: wrap; gap: 8px;
+      align-items: center;
+      color: var(--muted2);
+      font-size: 12px;
+    }
+    .legend .badge {
+      cursor: pointer;
+    }
+    .badge {
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.06);
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1;
+      white-space: nowrap;
+    }
+    .b-winter { background: rgba(120,180,255,.12); color: var(--text); }
+    .b-summer { background: rgba(255,200,120,.14); color: var(--text); }
+    .b-filter { background: rgba(120,255,200,.12); color: var(--text); }
+    .b-ro { background: rgba(255,140,200,.14); color: var(--text); }
+
+    .card {
+      margin-top: 16px;
+      background: linear-gradient(180deg, var(--card2), var(--card));
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+    }
+    thead th {
+      text-align:left;
+      padding: 14px 16px;
+      font-size: 13px;
+      color: var(--muted);
+      background: rgba(255,255,255,.03);
+      border-bottom: 1px solid var(--stroke);
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    tbody td {
+      padding: 12px 16px;
+      vertical-align: middle;
+    }
+    tbody tr.month-row {
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    tbody tr.month-row:hover {
+      background: rgba(255,255,255,.05);
+    }
+    .col-month {
+      width: 132px;
+      font-variant-numeric: tabular-nums;
+      color: var(--text);
+      letter-spacing: .2px;
+    }
+    .col-note {
+      color: var(--muted);
+      display:flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .row-vac .col-month {
+      color: var(--muted);
+    }
+    .row-maint .col-month {
+      color: var(--text);
+      font-weight: 650;
+    }
+    .year-row {
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .year-row td {
+      padding: 10px 16px;
+      background: rgba(255,255,255,.03);
+    }
+    .year-pill {
+      display:inline-flex;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--stroke);
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: .4px;
+    }
+    .footer {
+      margin-top: 12px;
+      color: var(--muted2);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+    .hidden { display:none !important; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <h1><span class="dot"></span>大渡口區鋼花小學 - 直飲機 5 年維護時間規劃表</h1>
+      <p class="sub">安裝日期：2025-09-01｜維護期：60 個月（2025-09 ～ 2030-08）｜寒暑假（2/7/8 月）不計入週期，遇到順延</p>
+
+      <div class="chips">
+        <div class="chip">有效月份（扣除寒暑假）：<b>45</b> / 60</div>
+        <div class="chip">滤芯週期：<b>6</b> 個有效月（共 <b>7</b> 次）</div>
+        <div class="chip">RO 膜週期：<b>18</b> 個有效月（共 <b>2</b> 次）</div>
+        <div class="chip">寒暑假月份：<b>15</b>（2/7/8 月）</div>
+      </div>
+
+      <div class="controls">
+        <div class="search" title="輸入關鍵字，例如：滤芯 / RO / 寒假 / 暑假 / 2027-06">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="2" opacity=".7"/>
+            <path d="M16.4 16.4 21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".7"/>
+          </svg>
+          <input id="q" type="text" placeholder="搜尋月份或事項…" />
+        </div>
+
+        <label class="toggle"><input id="onlyTasks" type="checkbox" /> 只看有事項</label>
+        <label class="toggle"><input id="showVac" type="checkbox" checked /> 顯示寒暑假</label>
+      </div>
+
+      <div class="legend">
+        <span>圖例：</span>
+        <span class="badge b-winter">寒假（不計算）</span>
+        <span class="badge b-summer">暑假（不計算）</span>
+        <span class="badge b-filter">滤芯更換</span>
+        <span class="badge b-ro">RO膜更換</span>
+      </div>
+    </section>
+
+    <section class="card" aria-label="維護規劃表">
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 132px;">月份</th>
+            <th>標注</th>
+          </tr>
+        </thead>
+        <tbody id="tbody">
+          
+          <tr class="year-row" data-year="2025">
+            <td colspan="2"><span class="year-pill">2025</span></td>
+          </tr>
+        <tr class="month-row" data-year="2025" data-month="2025-09" data-note="" data-tags="">
+          <td class="col-month">2025-09</td>
+          <td class="col-note"></td>
+        </tr>
+        <tr class="month-row" data-year="2025" data-month="2025-10" data-note="" data-tags="">
+          <td class="col-month">2025-10</td>
+          <td class="col-note"></td>
+        </tr>
+        <tr class="month-row" data-year="2025" data-month="2025-11" data-note="" data-tags="">
+          <td class="col-month">2025-11</td>
+          <td class="col-note"></td>
+        </tr>
+        <tr class="month-row" data-year="2025" data-month="2025-12" data-note="" data-tags="">
+          <td class="col-month">2025-12</td>
+          <td class="col-note"></td>
+        </tr>
+          <tr class="year-row" data-year="2026">
+            <td colspan="2"><span class="year-pill">2026</span></td>
+          </tr>
+        <tr class="month-row" data-year="2026" data-month="2026-01" data-note="" data-tags="">
+          <td class="col-month">2026-01</td>
+          <td class="col-note"></td>
+        </tr>
+        <tr class="month-row row-vac" data-year="2026" data-month="2026-02" data-note="寒假（不計算）" data-tags="winter">
+          <td class="col-month">2026-02</td>
+          <td class="col-note"><span class="badge b-winter">寒假（不計算）</span></td>
+        </tr>
+        <tr class="month-row row-maint" data-year="2026" data-month="2026-03" data-note="滤芯更換" data-tags="filter">
+          <td class="col-month">2026-03</td>
+          <td class="col-note"><span class="badge b-filter">滤芯更換</span></td>
+        </tr>
+        <tr class="month-row" data-year="2026" data-month="2026-04" data-note="" data-tags="">
+          <td class="col-month">2026-04</td>
+          <td class="col-note"></td>
+        </tr>
+        <tr class="month-row" data-year="2026" data-month="2026-05" data-note="" data-tags="">
+          <td class="col-month">2026-05</td>
+          <td class="col-note"></td>
+        </tr>
+        <tr class="month-row" data-year="2026" data-month="2026-06" data-note="" data-tags="">
+          <td class="col-month">2026-06</td>
+          <td class="col-note"></td>
+        </tr>
+        <tr class="month-row row-vac" data-year="2026" data-month="2026-07" data-note="暑假（不計算）" data-tags="summer">
+          <td class="col-month">2026-07</td>
+          <td class="col-note"><span class="badge b-summer">暑假（不計算）</span></td>
+        </tr>
+        <tr class="month-row row-vac" data-year="2026" data-month="2026-08" data-note="暑假（不計算）" data-tags="summer">
+          <td class="col-month">2026-08</td>
+          <td class="col-note"><span class="badge b-summer">暑假（不計算）</span></td>
+        </tr>
+        <tr class="month-row" data-year="2026" data-month="2026-09" data-note="" data-tags="">
+          <td class="col-month">2026-09</td>
+          <td class="col-note"></td>
+        </tr>
+        <tr class="month-row" data-year="2026" data-month="2026-10" data-note="" data-tags="">
+          <td class="col-month">2026-10</td>
+          <td class="col-note"></td>
+        </tr>
+        <tr class="month-row row-maint" data-year="2026" data-month="2026-11" data-note="滤芯更換" data-tags="filter">
+          <td class="col-month">2026-11</td>
+          <td class="col-note"><span class="badge b-filter">滤芯更換</span></td>
+        </tr>
+        <tr class="month-row" data-year="2026" data-month="2026-12" data-note="" data-tags="">
+          <td class="col-month">2026-12</td>
+          <td class="col-note"></td>
+        </tr>
+          <tr class="year-row" data-year="2027">
+            <td colspan="2"><span class="year-pill">2027</span></td>
+          </tr>
+        <tr class="month-row" data-year="2027" data-month="2027-01" data-note="" data-tags="">
+          <td class="col-month">2027-01</td>
+          <td class="col-note"></td>
+        </tr>
+        <tr class="month-row row-vac" data-year="2027" data-month="2027-02" data-note="寒假（不計算）" data-tags="winter">
+          <td class="col-month">2027-02</td>
+          <td class="col-note"><span class="badge b-winter">寒假（不計算）</span></td>
+        </tr>
+        <tr class="month-row" data-year="2027" data-month="2027-03" data-note="" data-tags="">
+          <td class="col-month">2027-03</td>
+          <td class="col-note"></td>
+        </tr>
+        <tr class="month-row" data-year="2027" data-month="2027-04" data-note="" data-tags="">
+          <td class="col-month">2027-04</td>
+          <td class="col-note"></td>
+        </tr>
+        <tr class="month-row" data-year="2027" data-month="2027-05" data-note="" data-tags="">
+          <td class="col-month">2027-05</td>
+          <td class="col-note"></td>
+        </tr>
+        <tr class="month-row row-maint" data-year="2027" data-month="2027-06" data-note="滤芯更換、RO膜更換" data-tags="filter ro">
+          <td class="col-month">2027-06</td>
+          <td class="col-note"><span class="badge b-filter">滤芯更換</span> <span class="badge b-ro">RO膜更換</span></td>
+        </tr>
+        <tr class="month-row row-vac" data-year="2027" data-month="2027-07" data-note="暑假（不計算）" data-tags="summer">
+          <td class="col-month">2027-07</td>
+          <td class="col-note"><span class="badge b-summer">暑假（不計算）</span></td>
+        </tr>
+        <tr class="month-row row-vac" data-year="2027" data-month="2027-08" data-note="暑假（不計算）" data-tags="summer">
+          <td class="col-month">2027-08</td>
+          <td class="col-note"><span class="badge b-summer">暑假（不計算）</span></td>
+        </tr>
+        <tr class="month-row" data-year="2027" data-month="2027-09" data-note="" data-tags="">
+          <td class="col-month">2027-09</td>
+          <td class="col-note"></td>
+        </tr>
+        <tr class="month-row" data-year="2027" data-month="2027-10" data-note="" data-tags="">
+          <td class="col-month">2027-10</td>
+          <td class="col-note"></td>
+        </tr>
+        <tr class="month-row" data-year="2027" data-month="2027-11" data-note="" data-tags="">
+          <td class="col-month">2027-11</td>
+          <td class="col-note"></td>
+        </tr>
+        <tr class="month-row" data-year="2027" data-month="2027-12" data-note="" data-tags="">
+          <td class="col-month">2027-12</td>
+          <td class="col-note"></td>
+        </tr>
+          <tr class="year-row" data-year="2028">
+            <td colspan="2"><span class="year-pill">2028</span></td>
+          </tr>
+        <tr class="month-row" data-year="2028" data-month="2028-01" data-note="" data-tags="">
+          <td class="col-month">2028-01</td>
+          <td class="col-note"></td>
+        </tr>
+        <tr class="month-row row-vac" data-year="2028" data-month="2028-02" data-note="寒假（不計算）" data-tags="winter">
+          <td class="col-month">2028-02</td>
+          <td class="col-note"><span class="badge b-winter">寒假（不計算）</span></td>
+        </tr>
+        <tr class="month-row row-maint" data-year="2028" data-month="2028-03" data-note="滤芯更換" data-tags="filter">
+          <td class="col-month">2028-03</td>
+          <td class="col-note"><span class="badge b-filter">滤芯更換</span></td>
+        </tr>
+        <tr class="month-row" data-year="2028" data-month="2028-04" data-note="" data-tags="">
+          <td class="col-month">2028-04</td>
+          <td class="col-note"></td>
+        </tr>
+        <tr class="month-row" data-year="2028" data-month="2028-05" data-note="" data-tags="">
+          <td class="col-month">2028-05</td>
+          <td class="col-note"></td>
+        </tr>
+        <tr class="month-row" data-year="2028" data-month="2028-06" data-note="" data-tags="">
+          <td class="col-month">2028-06</td>
+          <td class="col-note"></td>
+        </tr>
+        <tr class="month-row row-vac" data-year="2028" data-month="2028-07" data-note="暑假（不計算）" data-tags="summer">
+          <td class="col-month">2028-07</td>
+          <td class="col-note"><span class="badge b-summer">暑假（不計算）</span></td>
+        </tr>
+        <tr class="month-row row-vac" data-year="2028" data-month="2028-08" data-note="暑假（不計算）" data-tags="summer">
+          <td class="col-month">2028-08</td>
+          <td class="col-note"><span class="badge b-summer">暑假（不計算）</span></td>
+        </tr>
+        <tr class="month-row" data-year="2028" data-month="2028-09" data-note="" data-tags="">
+          <td class="col-month">2028-09</td>
+          <td class="col-note"></td>
+        </tr>
+        <tr class="month-row" data-year="2028" data-month="2028-10" data-note="" data-tags="">
+          <td class="col-month">2028-10</td>
+          <td class="col-note"></td>
+        </tr>
+        <tr class="month-row row-maint" data-year="2028" data-month="2028-11" data-note="滤芯更換" data-tags="filter">
+          <td class="col-month">2028-11</td>
+          <td class="col-note"><span class="badge b-filter">滤芯更換</span></td>
+        </tr>
+        <tr class="month-row" data-year="2028" data-month="2028-12" data-note="" data-tags="">
+          <td class="col-month">2028-12</td>
+          <td class="col-note"></td>
+        </tr>
+          <tr class="year-row" data-year="2029">
+            <td colspan="2"><span class="year-pill">2029</span></td>
+          </tr>
+        <tr class="month-row" data-year="2029" data-month="2029-01" data-note="" data-tags="">
+          <td class="col-month">2029-01</td>
+          <td class="col-note"></td>
+        </tr>
+        <tr class="month-row row-vac" data-year="2029" data-month="2029-02" data-note="寒假（不計算）" data-tags="winter">
+          <td class="col-month">2029-02</td>
+          <td class="col-note"><span class="badge b-winter">寒假（不計算）</span></td>
+        </tr>
+        <tr class="month-row" data-year="2029" data-month="2029-03" data-note="" data-tags="">
+          <td class="col-month">2029-03</td>
+          <td class="col-note"></td>
+        </tr>
+        <tr class="month-row" data-year="2029" data-month="2029-04" data-note="" data-tags="">
+          <td class="col-month">2029-04</td>
+          <td class="col-note"></td>
+        </tr>
+        <tr class="month-row" data-year="2029" data-month="2029-05" data-note="" data-tags="">
+          <td class="col-month">2029-05</td>
+          <td class="col-note"></td>
+        </tr>
+        <tr class="month-row row-maint" data-year="2029" data-month="2029-06" data-note="滤芯更換、RO膜更換" data-tags="filter ro">
+          <td class="col-month">2029-06</td>
+          <td class="col-note"><span class="badge b-filter">滤芯更換</span> <span class="badge b-ro">RO膜更換</span></td>
+        </tr>
+        <tr class="month-row row-vac" data-year="2029" data-month="2029-07" data-note="暑假（不計算）" data-tags="summer">
+          <td class="col-month">2029-07</td>
+          <td class="col-note"><span class="badge b-summer">暑假（不計算）</span></td>
+        </tr>
+        <tr class="month-row row-vac" data-year="2029" data-month="2029-08" data-note="暑假（不計算）" data-tags="summer">
+          <td class="col-month">2029-08</td>
+          <td class="col-note"><span class="badge b-summer">暑假（不計算）</span></td>
+        </tr>
+        <tr class="month-row" data-year="2029" data-month="2029-09" data-note="" data-tags="">
+          <td class="col-month">2029-09</td>
+          <td class="col-note"></td>
+        </tr>
+        <tr class="month-row" data-year="2029" data-month="2029-10" data-note="" data-tags="">
+          <td class="col-month">2029-10</td>
+          <td class="col-note"></td>
+        </tr>
+        <tr class="month-row" data-year="2029" data-month="2029-11" data-note="" data-tags="">
+          <td class="col-month">2029-11</td>
+          <td class="col-note"></td>
+        </tr>
+        <tr class="month-row" data-year="2029" data-month="2029-12" data-note="" data-tags="">
+          <td class="col-month">2029-12</td>
+          <td class="col-note"></td>
+        </tr>
+          <tr class="year-row" data-year="2030">
+            <td colspan="2"><span class="year-pill">2030</span></td>
+          </tr>
+        <tr class="month-row" data-year="2030" data-month="2030-01" data-note="" data-tags="">
+          <td class="col-month">2030-01</td>
+          <td class="col-note"></td>
+        </tr>
+        <tr class="month-row row-vac" data-year="2030" data-month="2030-02" data-note="寒假（不計算）" data-tags="winter">
+          <td class="col-month">2030-02</td>
+          <td class="col-note"><span class="badge b-winter">寒假（不計算）</span></td>
+        </tr>
+        <tr class="month-row row-maint" data-year="2030" data-month="2030-03" data-note="滤芯更換" data-tags="filter">
+          <td class="col-month">2030-03</td>
+          <td class="col-note"><span class="badge b-filter">滤芯更換</span></td>
+        </tr>
+        <tr class="month-row" data-year="2030" data-month="2030-04" data-note="" data-tags="">
+          <td class="col-month">2030-04</td>
+          <td class="col-note"></td>
+        </tr>
+        <tr class="month-row" data-year="2030" data-month="2030-05" data-note="" data-tags="">
+          <td class="col-month">2030-05</td>
+          <td class="col-note"></td>
+        </tr>
+        <tr class="month-row" data-year="2030" data-month="2030-06" data-note="" data-tags="">
+          <td class="col-month">2030-06</td>
+          <td class="col-note"></td>
+        </tr>
+        <tr class="month-row row-vac" data-year="2030" data-month="2030-07" data-note="暑假（不計算）" data-tags="summer">
+          <td class="col-month">2030-07</td>
+          <td class="col-note"><span class="badge b-summer">暑假（不計算）</span></td>
+        </tr>
+        <tr class="month-row row-vac" data-year="2030" data-month="2030-08" data-note="暑假（不計算）" data-tags="summer">
+          <td class="col-month">2030-08</td>
+          <td class="col-note"><span class="badge b-summer">暑假（不計算）</span></td>
+        </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <div class="footer">
+      <div>說明：此表以「有效月份」計算週期（寒假 2 月、暑假 7/8 月不計入），因此若週期落在寒暑假會自動順延到下一個有效月份。</div>
+      <div>備註：如需加入「消毒清洗 / 巡檢 / 水質檢測」等固定項目，也可以在同一套規則下擴充。</div>
+    </div>
+  </div>
+
+  <script>
+    const q = document.getElementById('q');
+    const onlyTasks = document.getElementById('onlyTasks');
+    const showVac = document.getElementById('showVac');
+    const tbody = document.getElementById('tbody');
+
+    function applyFilter() {
+      const text = (q.value || '').trim().toLowerCase();
+      const monthRows = Array.from(tbody.querySelectorAll('tr.month-row'));
+      const yearRows = Array.from(tbody.querySelectorAll('tr.year-row'));
+
+      for (const r of monthRows) {
+        const note = (r.dataset.note || '').toLowerCase();
+        const month = (r.dataset.month || '').toLowerCase();
+        const tags = (r.dataset.tags || '').toLowerCase();
+
+        const isVac = tags.includes('winter') || tags.includes('summer');
+        const hasTask = (r.dataset.note || '').trim().length > 0;
+
+        let ok = true;
+
+        if (onlyTasks.checked && !hasTask) ok = false;
+        if (!showVac.checked && isVac) ok = false;
+
+        if (text) {
+          const hay = (month + ' ' + note + ' ' + tags);
+          if (!hay.includes(text)) ok = false;
+        }
+
+        r.classList.toggle('hidden', !ok);
+      }
+
+      // year row visibility: show if any month-row under that year is visible
+      for (const yr of yearRows) {
+        const year = yr.dataset.year;
+        const visibleInYear = monthRows.some(r => r.dataset.year === year && !r.classList.contains('hidden'));
+        yr.classList.toggle('hidden', !visibleInYear);
+      }
+    }
+
+    q.addEventListener('input', applyFilter);
+    onlyTasks.addEventListener('change', applyFilter);
+    showVac.addEventListener('change', applyFilter);
+
+    // 點擊圖例徽章：自動填入搜尋欄並觸發篩選
+    const legendBadges = document.querySelectorAll('.legend .badge');
+    function handleLegendClick(keyword) {
+      if (!q) return;
+      q.value = keyword;
+      applyFilter();
+      // 將游標移到文字最後，方便接著輸入
+      const end = q.value.length;
+      try {
+        q.focus();
+        q.setSelectionRange(end, end);
+      } catch (e) {
+        // 某些舊瀏覽器可能不支援 setSelectionRange
+      }
+    }
+    legendBadges.forEach(badge => {
+      const label = badge.textContent.trim();
+      badge.setAttribute('role', 'button');
+      badge.setAttribute('tabindex', '0');
+      badge.addEventListener('click', () => handleLegendClick(label));
+      badge.addEventListener('keydown', ev => {
+        if (ev.key === 'Enter' || ev.key === ' ') {
+          ev.preventDefault();
+          handleLegendClick(label);
+        }
+      });
+    });
+
+    applyFilter();
+  </script>
+</body>
+</html>
